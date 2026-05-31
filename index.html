@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Releasy Dashboard & AI Copilot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">R</div>
+        <div class="logo-text">Releasy</div>
+        <span class="logo-badge">V1</span>
+      </div>
+      
+      <ul class="nav-menu">
+        <li>
+          <a href="#" class="nav-item active" id="nav-dashboard" data-target="view-dashboard">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+            Releasy Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-item" id="nav-templates" data-target="view-templates">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mallbibliotek
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-item" id="nav-matrix" data-target="view-matrix">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Kundinformation
+          </a>
+        <li>
+          <a href="#" class="nav-item" id="nav-routines" data-target="view-routines">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Rutinbibliotek
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-item" id="nav-settings" data-target="view-settings">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            System Inställningar
+          </a>
+        </li>
+      </ul>
+      
+      <!-- KPI Sidebar Widget -->
+      <div class="sidebar-kpi">
+        <span class="kpi-title">AI Automationsgrad</span>
+        <div class="kpi-bar-container">
+          <div class="kpi-bar-labels">
+            <span>Mål: 85%</span>
+            <span id="txt-automation-pct">84%</span>
+          </div>
+          <div class="kpi-bar-bg">
+            <div class="kpi-bar-fill" id="kpi-automation-bar"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Widget -->
+      <div class="profile-container">
+        <div class="avatar">M</div>
+        <div class="profile-info">
+          <span class="profile-name">Göran Releasyson</span>
+          <span class="profile-role">Customer Care Manager</span>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content Panel Area -->
+    <main class="main-content">
+      
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <h2 id="top-title-indicator">Releasy Dashboard</h2>
+          <p id="top-date-indicator">Onsdag, 20 Maj 2026 | Releasy AI</p>
+        </div>
+        <div class="top-bar-right">
+          <button class="btn-secondary" id="btn-reset-demo">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            Återställ Demo
+          </button>
+        </div>
+      </header>
+      
+      <!-- VIEW 1: AI DASHBOARD (DEFAULT VIEW) -->
+      <div id="view-dashboard" class="tab-view">
+
+        
+        <!-- Dashboard Interactive Workspace Grid -->
+        <div class="workspace-grid">
+          
+          <!-- Left column: Kundinfo input & Mallskapare -->
+          <div class="left-column">
+            
+            <!-- Kundinformation Box -->
+            <div class="section-card glass" id="card-kundinfo">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Information / Anteckning (Samtal)
+                </h3>
+              </div>
+              <div class="card-body">
+                <!-- Quick case action panel -->
+                <div class="preset-selector">
+                  <div class="preset-header-row">
+                    <span class="preset-label">Skriv fritt i anteckningsbubblan:</span>
+                    <button class="btn-preset btn-clear" id="btn-clear-text">Rensa fält</button>
+                  </div>
+                  <div class="preset-buttons-row">
+                    <button class="btn-preset btn-demo-load" id="btn-load-demo-utflytt">✨ Ladda Utflytt (Matilda)</button>
+                    <button class="btn-preset btn-demo-load" id="btn-load-demo-inflytt">✨ Ladda Inflytt (Per)</button>
+                  </div>
+                  <div class="preset-buttons-row preset-buttons-row-3" style="margin-top:4px;">
+                    <button class="btn-preset btn-demo-load" id="btn-load-demo-felanmalan">⚡ Felanmälan (Johan)</button>
+                    <button class="btn-preset btn-demo-load" id="btn-load-demo-kreditering">💳 Kreditering (Anna)</button>
+                    <button class="btn-preset btn-demo-load" id="btn-load-demo-avbetalning">📋 Avbetalning (Erik)</button>
+                  </div>
+                </div>
+                
+                <!-- Raw input textbox -->
+                <div class="customer-textbox-wrapper">
+                  <textarea class="textarea-premium" id="txt-customer-raw" placeholder="Skriv eller klistra in din samtalsnotering här för att testa Releasy AI (t.ex. 'Matilda 1988543453 anl 12344243 adress snesgatan 8 vill gö utflytt 2026-02-02 och inte teckna nytt')..."></textarea>
+                  
+                  <!-- Scanner Animation Overlay -->
+                  <div class="scanner-overlay" id="scanner-visual">
+                    <div class="scanner-line"></div>
+                    <div class="scanner-text">Releasy AI analyserar och sammanställer...</div>
+                  </div>
+                </div>
+                
+                <button class="btn-primary" id="btn-extract-data">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  Analysera
+                </button>
+                
+                <!-- Structured Data Extracted View -->
+                <div class="structured-output" id="box-structured-data">
+                  <div class="data-row">
+                    <span class="data-label">Kundens Namn:</span>
+                    <span class="data-val" id="lbl-c-name">Sven Svensson</span>
+                  </div>
+                  <div class="data-row" id="row-c-num">
+                    <span class="data-label">Personnummer:</span>
+                    <span class="data-val" id="lbl-c-num">840321-4412</span>
+                  </div>
+                  <div class="data-row" id="row-c-type">
+                    <span class="data-label">Ärendetyp:</span>
+                    <span class="data-val" id="lbl-c-type">Totalavbrott Bredband</span>
+                  </div>
+                  <div class="data-row" id="row-c-anläggning">
+                    <span class="data-label">Anläggnings-ID:</span>
+                    <span class="data-val label-purple" id="lbl-c-anlaggning">-</span>
+                  </div>
+                  <div class="data-row" id="row-c-adress">
+                    <span class="data-label">Leveransadress:</span>
+                    <span class="data-val" id="lbl-c-adress">-</span>
+                  </div>
+                  <div class="data-row" id="row-c-inflytt-datum">
+                    <span class="data-label">Inflyttningsdatum:</span>
+                    <span class="data-val" id="lbl-c-inflytt-datum">-</span>
+                  </div>
+                  <div class="data-row" id="row-c-avtalstyp">
+                    <span class="data-label">Elavtal / Kundtyp:</span>
+                    <span class="data-val label-emerald" id="lbl-c-avtalstyp">-</span>
+                  </div>
+                  <div class="data-row" id="row-c-handlaggare">
+                    <span class="data-label">Handläggare:</span>
+                    <span class="data-val label-mono" id="lbl-c-handlaggare">-</span>
+                  </div>
+                  <div class="data-row">
+                    <span class="data-label">Humör (AI):</span>
+                    <span class="sentiment-badge negative" id="badge-c-mood">Frustrerad</span>
+                  </div>
+                  <div class="data-row" id="row-c-ai-sol">
+                    <span class="data-label">AI Lösning:</span>
+                    <span class="data-val" id="lbl-c-sol">Kreditering & Teknikerbokning</span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <!-- Mallskapare (Template Hub Quick List) - Hidden from main page since AI auto-selects -->
+            <div class="section-card glass" id="card-templates-list" style="display: none;">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Mallbibliotek (Fylls i automatiskt)
+                </h3>
+              </div>
+              <div class="card-body">
+                
+                <div class="template-presets-title">Aktiv svarsmall:</div>
+                <div class="template-cards" id="list-templates-container">
+                  <!-- Dynamic render -->
+                </div>
+                
+                <button class="btn-add-template" id="btn-trigger-modal">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Skapa Ny Svarsmall
+                </button>
+                
+                <div class="variables-helper">
+                  <span class="helper-title">Variabler (Klicka för att kopiera):</span>
+                  <div class="badge-row">
+                    <span class="var-badge" data-var="{{kund_namn}}">{{kund_namn}}</span>
+                    <span class="var-badge" data-var="{{kund_nummer}}">{{kund_nummer}}</span>
+                    <span class="var-badge" data-var="{{problem_typ}}">{{problem_typ}}</span>
+                    <span class="var-badge" data-var="{{ai_losning}}">{{ai_losning}}</span>
+                    <span class="var-badge" data-var="{{agent_namn}}">{{agent_namn}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{anlaggnings_id}}">{{anlaggnings_id}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{adress}}">{{adress}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{inflytt_datum}}">{{inflytt_datum}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{avtals_typ}}">{{avtals_typ}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{kontakt_uppgifter}}">{{kontakt_uppgifter}}</span>
+                    <span class="var-badge var-badge-purple" data-var="{{epost}}">{{epost}}</span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Right column: Auto Generated Email & AI prompt assistant -->
+          <div class="right-column">
+            
+            <div class="section-card glass" id="card-ai-output">
+              <div class="card-header">
+                <h3 class="card-title ai">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  Releasy AI Förenklare
+                </h3>
+                <div class="output-status">
+                  <div class="status-dot" id="output-indicator-dot"></div>
+                  <span id="output-indicator-text">Releasy AI Redo</span>
+                </div>
+              </div>
+              
+              <!-- Dynamic context-aware suggestion chips (populated by JS based on editor content) -->
+              <div class="suggestion-chips" id="chips-suggestions-row">
+                <!-- Chips are generated dynamically based on editor content -->
+              </div>
+              
+              <div class="output-body">
+                <div class="paper-editor" id="txt-ai-draft" contenteditable="true">
+                  Välj ett ärende och en svarsmall till vänster, eller klicka på "Analysera" för att generera ett svar.
+                </div>
+              </div>
+              
+              <div class="copilot-prompt-bar">
+                <div class="copilot-spark">✨</div>
+                <input type="text" class="input-prompt" id="txt-copilot-prompt" placeholder="Be Releasy AI skriva om eller justera (t.ex. 'gör formell')...">
+                <button class="btn-send-prompt" id="btn-send-prompt" title="Skicka prompt">
+                  <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+
+              
+            </div>
+
+            <!-- New System Guide Visuals Card -->
+            <div class="section-card glass learning-card" id="card-system-guide" style="display: none; border: 1px solid var(--border-light); background: var(--bg-card); transition: var(--transition-smooth); margin-top: 16px;">
+              <div class="card-header" style="border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; gap: 10px; flex-wrap: wrap;">
+                <h3 class="card-title ai" style="color: var(--ai-purple); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; text-transform: uppercase; margin: 0;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; stroke: var(--ai-purple);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  📸 Rutin: <span id="system-guide-title">Rutin</span>
+                </h3>
+                
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <!-- Glass segmented selector for Guide Mode -->
+                  <div class="stepper-mode-selector" style="display: inline-flex; background: rgba(0, 0, 0, 0.2); padding: 2px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                    <button id="guide-mode-stepper-btn" class="btn-segment active" style="font-size: 9.5px; font-weight: 600; padding: 4px 8px; border: none; background: transparent; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: var(--transition-smooth);">
+                      🚶‍♂️ Rullande steg
+                    </button>
+                    <button id="guide-mode-gallery-btn" class="btn-segment" style="font-size: 9.5px; font-weight: 600; padding: 4px 8px; border: none; background: transparent; color: var(--color-text-muted); border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: var(--transition-smooth);">
+                      🖼️ Galleri
+                    </button>
+                  </div>
+                  <span id="system-guide-img-counter" style="font-size: 10px; color: var(--color-text-muted); font-weight: 600; background: rgba(99, 102, 241, 0.1); padding: 2px 8px; border-radius: 10px;">1/8</span>
+                </div>
+              </div>
+              <div class="card-body" style="padding: 16px; display: flex; flex-direction: column; gap: 12px; align-items: center; box-sizing: border-box; width: 100%;">
+                
+                <!-- Stepper Progress Bar (Only visible in stepper mode) -->
+                <div class="stepper-progress-container" id="stepper-progress-box" style="width: 100%; background: rgba(255, 255, 255, 0.02); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 8px 12px; display: flex; flex-direction: column; gap: 6px; box-sizing: border-box;">
+                  <div style="display: flex; justify-content: space-between; font-size: 9.5px; font-weight: 600; color: var(--color-text-muted);">
+                    <span id="stepper-progress-text">Steg 1 av 8</span>
+                    <span id="stepper-progress-pct" style="color: var(--ai-purple);">12% klart</span>
+                  </div>
+                  <div style="width: 100%; height: 6px; background: rgba(0,0,0,0.3); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.02);">
+                    <div id="stepper-progress-bar" style="width: 12%; height: 100%; background: linear-gradient(90deg, var(--ai-purple) 0%, #a855f7 100%); box-shadow: 0 0 8px rgba(168, 85, 247, 0.4); border-radius: 4px; transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);"></div>
+                  </div>
+                </div>
+
+                <!-- New Stepper Steps list for vertical scrollable sequential checklist -->
+                <div id="stepper-steps-list" style="width: 100%; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; align-self: stretch;">
+                  <!-- Dynamic vertical steps injected by JS -->
+                </div>
+
+                <!-- Thumbnail strip for browsing routine images (Visible in gallery mode or as a step map) -->
+                <div id="system-guide-thumbnails" style="display: none; width: 100%; overflow-x: auto; scrollbar-width: thin; scrollbar-color: rgba(99,102,241,0.3) transparent; align-self: stretch;">
+                  <div style="display: flex; gap: 6px; padding: 2px 0;">
+                    <!-- Thumbnails injected by JS -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Dynamic Style Learning Card -->
+            <div class="section-card glass learning-card" id="card-style-learning">
+              <div class="card-header learning-card-header">
+                <h3 class="card-title ai">
+                  <svg class="learning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  INLÄRD AI-SKRIVSTIL & PERSONPROFIL
+                </h3>
+                <div class="learning-status-badge">
+                  <span class="pulse-dot"></span>
+                  Lär sig din stil
+                </div>
+              </div>
+              <div class="card-body learning-card-body">
+                <p class="learning-desc">
+                  Denna modul anpassar automatiskt framtida mallar baserat på dina korrigeringar, tilltal och instruktioner.
+                </p>
+                
+                <!-- Style Metrics Display -->
+                <div class="style-metrics-grid">
+                  <div class="metric-slider-row">
+                    <div class="metric-slider-label-row">
+                      <span>Formell</span>
+                      <span class="style-metric-val" id="val-style-tone">Balanserad</span>
+                      <span>Vänlig</span>
+                    </div>
+                    <div class="style-progress-bg"><div class="style-progress-fill" id="fill-style-tone"></div></div>
+                  </div>
+                  
+                  <div class="metric-slider-row">
+                    <div class="metric-slider-label-row">
+                      <span>Kompakt</span>
+                      <span class="style-metric-val" id="val-style-structure">Normal</span>
+                      <span>Detaljerad</span>
+                    </div>
+                    <div class="style-progress-bg"><div class="style-progress-fill" id="fill-style-structure"></div></div>
+                  </div>
+                  
+                  <div class="metric-slider-row">
+                    <div class="metric-slider-label-row">
+                      <span>Ni-form</span>
+                      <span class="style-metric-val" id="val-style-address">Du-form</span>
+                      <span>Du-form</span>
+                    </div>
+                    <div class="style-progress-bg"><div class="style-progress-fill" id="fill-style-address"></div></div>
+                  </div>
+                </div>
+                
+                <!-- Active Rules Tags -->
+                <div class="learned-rules-box">
+                  <div class="learned-rules-title">AKTIVA STILREGLER (INLÄRDA):</div>
+                  <div class="badge-row" id="learned-rules-list">
+                    <span class="var-badge badge-active-profile">🎯 Stilprofil aktiverad</span>
+                    <span class="var-badge badge-active-profile">🇸🇪 Svensk kundservicejargong</span>
+                    <span class="var-badge badge-active-profile" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3);">📚 Rutin-Expertis: 366/366 PDF:er</span>
+                    <span class="var-badge badge-active-profile" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3);">⚡ Releasy AI Super-mode</span>
+                  </div>
+                </div>
+                
+                <!-- Learned Phrases Tags -->
+                <div class="learned-phrases-box" style="margin-top: 14px; border-top: 1px solid var(--border-light); padding-top: 12px;">
+                  <div class="learned-rules-title">INLÄRDA FRASER &amp; VOKABULÄR:</div>
+                  <div class="badge-row" id="learned-phrases-list" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;">
+                    <span class="var-badge" style="border-color: var(--border-light); color: var(--color-text-muted); cursor: default; font-size: 9px;">Inga anpassade fraser inlärda än</span>
+                  </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="learning-actions-row">
+                  <button class="btn-secondary btn-learn-action" id="btn-learn-edits">
+                    🧠 Lär från ändringar
+                  </button>
+                  <button class="btn-preset btn-clear-style" id="btn-reset-style">
+                    Rensa stil
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- VIEW 2: TEMPLATES LIBRARY VIEW -->
+      <div id="view-templates" class="tab-view">
+        <div class="section-card glass view-card-container">
+          <div class="card-header view-card-header">
+            <div class="view-header-title-box">
+              <h3 class="card-title view-title-large">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Företagsmallar & Svarsbibliotek
+              </h3>
+              <p class="view-header-desc">Hantera, sök och aktivera globala mallar för hela kundservice-avdelningen.</p>
+            </div>
+            <div class="view-header-actions">
+              <input type="text" class="input-premium search-templates-input" id="txt-search-templates" placeholder="Sök mallar...">
+              <button class="btn-primary width-auto" id="btn-new-template-lib">+ Skapa Ny Mall</button>
+            </div>
+          </div>
+          <div class="card-body view-card-body">
+            <div id="lib-templates-grid" class="templates-library-grid">
+              <!-- Loaded dynamically in app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- VIEW 3: CUSTOMER INFORMATION MATRIX -->
+      <div id="view-matrix" class="tab-view">
+        <div class="section-card glass view-card-container">
+          <div class="card-header view-card-header">
+            <div class="view-header-title-box">
+              <h3 class="card-title view-title-large">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Kundanlytisk Ärendematris (CRM Sync)
+              </h3>
+              <p class="view-header-desc">Här visas inkommande ärenden direkt från Releasys integrerade CRM-köer. Klicka på "Ladda i AI" för att testa ett ärende.</p>
+            </div>
+            <input type="text" class="input-premium search-crm-input" id="txt-search-crm" placeholder="Sök efter kund, nummer eller ärende...">
+          </div>
+          <div class="card-body crm-matrix-card-body">
+            <!-- Modern Responsive CRM Table -->
+            <table id="crm-table">
+              <thead>
+                <tr class="crm-table-header-row">
+                  <th>Kund</th>
+                  <th>Kundnummer</th>
+                  <th>Ärendekategori</th>
+                  <th>Humör (AI)</th>
+                  <th>Status</th>
+                  <th>Prioritet</th>
+                  <th class="text-right">Åtgärd</th>
+                </tr>
+              </thead>
+              <tbody id="crm-table-body">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- VIEW 4: SYSTEM CONFIGURATION & SETTINGS -->
+      <div id="view-settings" class="tab-view">
+        <div class="settings-view-grid">
+          
+          <!-- AI Engine config -->
+          <div class="section-card" style="border: 1px solid var(--border-light); background: var(--bg-card); box-shadow: var(--shadow-sm);">
+            <div class="card-header">
+              <h3 class="card-title">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Releasy AI Inställningar
+              </h3>
+            </div>
+            <div class="card-body settings-card-body">
+              
+              <div class="hidden-model-container">
+                <label class="settings-input-label">Aktiv AI LLM-Modell</label>
+                <div class="model-buttons-grid">
+                  <button class="btn-preset active" id="opt-model-1">Releasy AI v1 Flash (Rek.)</button>
+                  <button class="btn-preset" id="opt-model-2">Releasy AI v1 Pro</button>
+                  <button class="btn-preset" id="opt-model-3">Releasy AI v2 Finetuned</button>
+                </div>
+              </div>
+              
+              <div class="behavior-parameters-box">
+                <h4 class="settings-sub-title">Beteendeparametrar</h4>
+                
+                <div class="parameter-slider-row">
+                  <div class="parameter-labels-row">
+                    <span class="parameter-name-label">AI Kreativitet (Temperature)</span>
+                    <span id="txt-val-temp" class="parameter-val-indicator">0.3</span>
+                  </div>
+                  <input type="range" min="0" max="1" step="0.1" value="0.3" class="input-premium slider-pointer" id="rng-temp">
+                </div>
+                
+                <div class="parameter-slider-row">
+                  <div class="parameter-labels-row">
+                    <span class="parameter-name-label">Minsta CSAT-tröskel för auto-godkännande</span>
+                    <span id="txt-val-csat-limit" class="parameter-val-indicator-blue">92%</span>
+                  </div>
+                  <input type="range" min="70" max="98" step="1" value="92" class="input-premium slider-pointer" id="rng-csat">
+                </div>
+              </div>
+              
+              <div class="system-toggles-box">
+                <h4 class="settings-sub-title">System-toggles</h4>
+                <div class="toggles-list">
+                  <div class="toggle-item-row">
+                    <div>
+                      <div class="toggle-item-name">Autospara i CRM</div>
+                      <div class="toggle-item-desc">Spara alla genererade svar som samtalsanteckning vid stängning.</div>
+                    </div>
+                    <input type="checkbox" checked class="checkbox-pointer">
+                  </div>
+                  
+                  <div class="toggle-item-row">
+                    <div>
+                      <div class="toggle-item-name">Typografisk skrivmaskinsanimation</div>
+                      <div class="toggle-item-desc">Simulera AI-tänkande med ett animerat flödesförlopp.</div>
+                    </div>
+                    <input type="checkbox" id="chk-typewriter" checked class="checkbox-pointer">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Premium Theme & Accent Customizer -->
+              <div class="system-theme-box" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+                <h4 class="settings-sub-title">Utseende & Färgtema</h4>
+                <div class="toggles-list">
+                  <div class="theme-setting-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <div>
+                      <div class="toggle-item-name">Färgläge</div>
+                      <div class="toggle-item-desc">Växla mellan mörkt och ljust utseende.</div>
+                    </div>
+                    <div class="segmented-control" id="theme-mode-segmented" style="display: flex; background: rgba(0, 0, 0, 0.2); padding: 3px; border-radius: 8px; border: 1px solid var(--border-light);">
+                      <button class="btn-segment active" data-mode="dark" style="border: none; background: transparent; color: var(--color-text-main); padding: 6px 12px; font-size: 11px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: var(--transition-smooth);">Mörkt läge</button>
+                      <button class="btn-segment" data-mode="light" style="border: none; background: transparent; color: var(--color-text-muted); padding: 6px 12px; font-size: 11px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: var(--transition-smooth);">Ljust läge</button>
+                    </div>
+                  </div>
+                  
+                  <div class="theme-setting-row" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <div class="toggle-item-name">Färgtema (Accent)</div>
+                      <div class="toggle-item-desc">Välj din personliga accentfärg för gränssnittet.</div>
+                    </div>
+                    <div class="theme-color-presets" id="theme-accent-grid" style="display: flex; gap: 8px;">
+                      <button class="theme-color-btn active" data-theme="default" title="Slate Indigo" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid #ffffff; background: linear-gradient(135deg, #6366f1, #3b82f6); cursor: pointer; transition: var(--transition-smooth); box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);"></button>
+                      <button class="theme-color-btn" data-theme="cyan" title="Cyber Cyan" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(135deg, #0ea5e9, #2563eb); cursor: pointer; transition: var(--transition-smooth);"></button>
+                      <button class="theme-color-btn" data-theme="emerald" title="Nordic Emerald" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(135deg, #10b981, #059669); cursor: pointer; transition: var(--transition-smooth);"></button>
+                      <button class="theme-color-btn" data-theme="sunset" title="Crimson Sunset" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(135deg, #ec4899, #d97706); cursor: pointer; transition: var(--transition-smooth);"></button>
+                      <button class="theme-color-btn" data-theme="gold" title="Amber Gold" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(135deg, #f59e0b, #ea580c); cursor: pointer; transition: var(--transition-smooth);"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Agent profile info card -->
+          <div class="section-card" style="border: 1px solid var(--border-light); background: var(--bg-card); box-shadow: var(--shadow-sm);">
+            <div class="card-header">
+              <h3 class="card-title">Handläggare & Signatur</h3>
+            </div>
+            <div class="card-body settings-profile-card-body">
+              <div class="settings-profile-summary">
+                <div class="avatar profile-avatar-large">G</div>
+                <h4 class="settings-profile-name">Göran Releasyson</h4>
+                <p class="settings-profile-role">Global Team Lead</p>
+              </div>
+              
+              <div class="editor-field">
+                <label>Signaturnamn i mail</label>
+                <input type="text" class="input-premium" id="txt-settings-signature" value="Göran Releasyson">
+              </div>
+              <div class="editor-field">
+                <label>Avdelning</label>
+                <input type="text" class="input-premium" id="txt-settings-dept" value="Customer Care Global">
+              </div>
+              <div class="editor-field">
+                <label>Intern Signaturkod (Autosignering)</label>
+                <input type="text" class="input-premium" id="txt-settings-sig-code" value="xsimsgus ks privat" placeholder="T.ex. xsimsgus ks privat">
+              </div>
+              
+              <button class="btn-primary btn-save-settings-action" id="btn-save-settings">Spara Ändringar</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- VIEW 5: ROUTINES LIBRARY (NEW) -->
+      <div id="view-routines" class="tab-view">
+        <div class="routines-view-grid" style="display: grid; grid-template-columns: 350px 1fr; gap: 24px; height: 100%;">
+          
+          <!-- Left side: Search & List -->
+          <div class="section-card" style="border: 1px solid var(--border-light); background: var(--bg-card); display: flex; flex-direction: column; height: 100%; overflow: hidden;">
+            <div class="card-header" style="border-bottom: 1px solid var(--border-light); padding: 16px;">
+              <h3 class="card-title">Sök Rutin</h3>
+              <div style="position: relative; margin-top: 12px;">
+                <svg viewBox="0 0 24 24" style="position: absolute; left: 12px; top: 10px; width: 16px; height: 16px; fill: none; stroke: var(--color-text-muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="txt-routine-search" class="input-premium" placeholder="Sök på t.ex. 'Kreditera'..." style="padding-left: 36px;">
+              </div>
+            </div>
+            <div class="card-body" style="padding: 0; overflow-y: auto; flex: 1;">
+              <ul id="routines-list" style="list-style: none; padding: 0; margin: 0;">
+                <!-- Filled dynamically by app.js -->
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Right side: PDF Viewer -->
+          <div class="section-card" style="border: 1px solid var(--border-light); background: var(--bg-card); display: flex; flex-direction: column; height: 100%; overflow: hidden;">
+            <div class="card-header" style="border-bottom: 1px solid var(--border-light); padding: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%;">
+              <h3 class="card-title" id="lbl-routine-title" style="margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50%;">Välj en rutin att läsa</h3>
+              
+              <!-- Upgraded Segmented Tab Switcher Control -->
+              <div class="segmented-control" id="routine-tabs-row" style="display: none; background: rgba(0, 0, 0, 0.2); padding: 3px; border-radius: 8px; border: 1px solid var(--border-light); flex-shrink: 0;">
+                <button class="btn-segment active" id="btn-routine-pdf-tab" style="border: none; background: transparent; color: var(--color-text-main); padding: 6px 12px; font-size: 11px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 4px;">
+                  📄 PDF-dokument
+                </button>
+                <button class="btn-segment" id="btn-routine-img-tab" style="border: none; background: transparent; color: var(--color-text-muted); padding: 6px 12px; font-size: 11px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 4px;">
+                  🖼️ Skärmbilder &amp; Bilagor (<span id="routine-img-count">0</span>)
+                </button>
+              </div>
+            </div>
+            <div class="card-body" style="padding: 0; flex: 1; background: #e5e7eb; display: flex; flex-direction: column; position: relative;" id="routine-viewer-container">
+              <!-- Placeholder Text -->
+              <div id="routine-viewer-placeholder" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bg-primary); color: var(--color-text-muted); font-size: 14px; font-weight: 500;">
+                Ingen rutin vald
+              </div>
+              
+              <!-- PDF Container -->
+              <div id="routine-viewer-iframe-container" style="display: none; width: 100%; height: 100%;">
+                <!-- Loaded dynamically via iframe in app.js -->
+              </div>
+              
+              <!-- Images Gallery Grid Container -->
+              <div id="routine-viewer-images-container" style="display: none; width: 100%; height: 100%; overflow-y: auto; padding: 24px; background: var(--bg-primary);">
+                <!-- Dynamically populated with .routine-img-card items -->
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </main>
+    
+  </div>
+
+  <!-- Custom Template Modal Drawer -->
+  <div class="modal-overlay" id="modal-template">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Skapa Ny Svarsmall</h3>
+        <button class="btn-close" id="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Magic AI Generator Section -->
+        <div class="ai-generator-box" style="background: linear-gradient(to right, #f4f6fb, #eef2fa); border: 1px solid #d0d7e6; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+          <h4 style="margin: 0 0 8px 0; color: #2b3a55; font-size: 14px; display: flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#6366f1" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            Magi-läge: Låt AI Skapa
+          </h4>
+          <p style="margin: 0 0 12px 0; font-size: 12px; color: #55627a;">Klistra in ett exempel på ett mail ni brukar skicka. AI:n byter automatiskt ut kunduppgifter mot systemvariabler.</p>
+          <textarea class="textarea-premium" id="modal-input-magic" placeholder="T.ex: Hej Kalle! Tack för att du anmälde avbrottet på Storgatan 12. Vi har felsökt nätet. Mvh Göran" style="height: 60px; margin-bottom: 12px;"></textarea>
+          <button class="btn-primary" id="btn-generate-magic" style="width: 100%; font-size: 13px; padding: 8px;">✨ Generera Mall Automatiskt</button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 16px; font-size: 11px; font-weight: bold; color: #9aa5b1; letter-spacing: 1px;">ELLER BYGG MANUELLT</div>
+        <div class="editor-field">
+          <label for="modal-input-name">Mallens Namn (t.ex. 'Driftavbrott Bekräftelse')</label>
+          <input type="text" class="input-premium" id="modal-input-name" placeholder="Ange ett unikt namn...">
+        </div>
+        <div class="editor-field">
+          <label for="modal-input-desc">Kort beskrivning</label>
+          <input type="text" class="input-premium" id="modal-input-desc" placeholder="T.ex. 'Skickas vid avbrott i fibernätet'">
+        </div>
+        <div class="editor-field">
+          <label for="modal-input-text">Malltext (Använd variabler som {{kund_namn}} för automatisk ifyllnad)</label>
+          <textarea class="textarea-premium modal-textarea-large" id="modal-input-text" placeholder="Hej {{kund_namn}}!
+
+Tråkigt att höra att du upplever {{problem_typ}}. Vår AI föreslår följande åtgärd: {{ai_losning}}.
+
+Med vänliga hälsningar,
+{{agent_namn}}
+Releasy Kundservice"></textarea>
+        </div>
+        <div class="variables-helper">
+          <span class="helper-title">Klicka för att infoga i texten:</span>
+          <div class="badge-row">
+            <span class="var-badge modal-badge" data-var="{{kund_namn}}">{{kund_namn}}</span>
+            <span class="var-badge modal-badge" data-var="{{kund_nummer}}">{{kund_nummer}}</span>
+            <span class="var-badge modal-badge" data-var="{{problem_typ}}">{{problem_typ}}</span>
+            <span class="var-badge modal-badge" data-var="{{ai_losning}}">{{ai_losning}}</span>
+            <span class="var-badge modal-badge" data-var="{{agent_namn}}">{{agent_namn}}</span>
+            <span class="var-badge modal-badge" data-var="{{anlaggnings_id}}">{{anlaggnings_id}}</span>
+            <span class="var-badge modal-badge" data-var="{{adress}}">{{adress}}</span>
+            <span class="var-badge modal-badge" data-var="{{inflytt_datum}}">{{inflytt_datum}}</span>
+            <span class="var-badge modal-badge" data-var="{{avtals_typ}}">{{avtals_typ}}</span>
+            <span class="var-badge modal-badge" data-var="{{kontakt_uppgifter}}">{{kontakt_uppgifter}}</span>
+            <span class="var-badge modal-badge" data-var="{{epost}}">{{epost}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btn-cancel-modal">Avbryt</button>
+        <button class="btn-primary width-auto" id="btn-save-template">Spara Mall</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Copy Notification -->
+  <div class="toast" id="toast-notify">Svaret har kopierats till urklipp! 📋</div>
+
+  <!-- Premium Lightbox Carousel for System Guide Screenshots -->
+  <div class="modal-overlay" id="modal-lightbox" style="z-index: 9999; display: none;">
+    <div class="lightbox-container" style="position: relative; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-premium);">
+      
+      <!-- Navigation: Previous -->
+      <button id="lightbox-prev" class="lightbox-nav-btn" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); z-index: 10001; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; transition: all 0.2s ease; backdrop-filter: blur(8px);">
+        ‹
+      </button>
+      
+      <img id="lightbox-img" src="" alt="Fullskärm systemvy" style="max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); transition: opacity 0.2s ease;">
+      
+      <!-- Navigation: Next -->
+      <button id="lightbox-next" class="lightbox-nav-btn" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); z-index: 10001; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; transition: all 0.2s ease; backdrop-filter: blur(8px);">
+        ›
+      </button>
+      
+      <!-- Caption + Counter -->
+      <div style="display: flex; align-items: center; gap: 10px; margin-top: 12px;">
+        <div id="lightbox-counter" style="color: rgba(255,255,255,0.7); font-size: 11px; font-weight: 600; background: rgba(0,0,0,0.5); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: none;">
+          1 / 8
+        </div>
+        <div id="lightbox-caption" style="color: var(--color-text-main); font-family: var(--font-display); font-size: 13px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); background: rgba(0, 0, 0, 0.65); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-light); font-weight: 500;">
+          Stilprofil
+        </div>
+      </div>
+      
+      <button class="btn-close" id="btn-close-lightbox" style="position: absolute; top: 16px; right: 16px; font-size: 28px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); z-index: 10000; outline: none; line-height: 1;">&times;</button>
+    </div>
+  </div>
+
+  <!-- Stepper Celebration Overlay -->
+  <div class="modal-overlay" id="stepper-celebration-overlay" style="z-index: 10000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(10px); transition: all 0.3s ease;">
+    <div class="glass" style="max-width: 440px; width: 90%; padding: 32px 24px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(17, 18, 38, 0.95); display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); position: relative; overflow: hidden; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box;">
+      <!-- Glowing background accents -->
+      <div style="position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%); top: -80px; left: -80px; pointer-events: none;"></div>
+      <div style="position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%); bottom: -80px; right: -80px; pointer-events: none;"></div>
+
+      <div style="font-size: 52px; margin-bottom: 16px; filter: drop-shadow(0 4px 8px rgba(168, 85, 247, 0.3));">🎉</div>
+      <h2 style="font-size: 22px; font-weight: 800; color: #fff; margin: 0 0 10px 0; font-family: var(--font-display); background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Rutin slutförd!</h2>
+      <p style="font-size: 13px; color: var(--color-text-muted); margin: 0 0 24px 0; line-height: 1.5; font-family: var(--font-display);">
+        Grymt jobbat! Du har gått igenom och bockat av alla steg i rutinen. Kunden har fått en 100% driftsäker och professionell hantering! 🌟
+      </p>
+      
+      <!-- Stepper Completion Stats / Badge -->
+      <div style="width: 100%; display: flex; justify-content: space-around; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 12px; margin-bottom: 24px; box-sizing: border-box;">
+        <div>
+          <div style="font-size: 10px; color: var(--color-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Status</div>
+          <div style="font-size: 13px; color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 4px; margin-top: 2px;">
+            <span style="display: inline-block; width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 6px #10b981;"></span>
+            Slutförd
+          </div>
+        </div>
+        <div style="width: 1px; background: rgba(255, 255, 255, 0.08);"></div>
+        <div>
+          <div style="font-size: 10px; color: var(--color-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Noggrannhet</div>
+          <div style="font-size: 13px; color: #a855f7; font-weight: 700; margin-top: 2px; text-shadow: 0 0 8px rgba(168,85,247,0.3);">100% Säkrad 🏆</div>
+        </div>
+      </div>
+
+      <button id="btn-close-celebration" class="btn-primary" style="width: 100%; font-weight: 700; padding: 12px 20px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease; background: var(--ai-purple); color: #fff; border: none; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);">
+        Stäng & Svara Kund ✨
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="routines.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
